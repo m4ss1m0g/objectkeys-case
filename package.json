@@ -1,0 +1,30 @@
+{
+	"name": "objectkeys-case",
+	"version": "1.0.0",
+	"description": "Change the case (to upper or to lower) of the first char of object properties.",
+	"author": {
+		"name": "Massimo Giambona",
+		"url": "https://github.com/m4ss1m0g"
+	},
+	"main": "src/index.js",
+	"license": "MIT",
+	"keywords": [
+		"object",
+		"upcase",
+		"lowcase",
+		"uppercase",
+		"lowercase",
+		"case",
+		"property",
+		"JSON",
+		"key"
+	],
+	"scripts": {
+		"test": "jest"
+	},
+	"devDependencies": {
+		"@types/jest": "^26.0.3",
+		"eslint": "^7.4.0",
+		"jest": "^26.1.0"
+	}
+}

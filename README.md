@@ -19,7 +19,7 @@ npm install objectkeys-case
 ## Usage
 
 ```javascript
-const { lowCaseKeys, upCaseKeys } = require("changecase-objkeys");
+const { lowCaseKeys, upCaseKeys } = require("objectkeys-case");
 
 const data = {
     Foo: "foo",

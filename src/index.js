@@ -30,10 +30,19 @@ function upCaseKeys(obj) {
 function changeObjectKeys(obj, caseType) {
 	var result = {};
 	for (const prop in obj) {
-		result[changePropertyFirstCharCase(prop, caseType)] =
-			typeof obj[prop] === "object"
-				? changeObjectKeys(obj[prop], caseType)
-				: obj[prop];
+		let val;
+		// return the null as is
+		if (obj[prop] === null) {
+			val = obj[prop];
+		} else {
+			// Calculate the property value
+			val =
+				typeof obj[prop] === "object"
+					? changeObjectKeys(obj[prop], caseType)
+					: obj[prop];
+		}
+
+		result[changePropertyFirstCharCase(prop, caseType)] = val;
 	}
 	return result;
 }

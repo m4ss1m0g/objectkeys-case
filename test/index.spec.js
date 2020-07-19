@@ -44,4 +44,37 @@ describe("Main tests", () => {
 		expect(result.Baz.SUb1).toBeDefined();
 		expect(result.Baz.SUb2).toBeDefined();
 	});
+
+	test("Should set correctly null and undefined", () => {
+		const data = JSON.parse(`
+		{
+			"Id": 21,
+			"CustomerTypeId": null,
+			"Name": "Customer Name",
+			"Note": null,
+			"RowVersion": "AAAAAAAAZ0k=",
+			"SellerId": null,
+			"Vat": "00000000000",
+			"Address": {
+			  "City": "New York",
+			  "Street": "Another Street"
+			},
+			"EMails": {
+			  "Email1": null,
+			  "Email2": null,
+			  "Email3": "mail1@domain.com"
+			}
+		  }
+		`);
+
+		const result = lowCaseKeys(data);
+		
+		// Assert
+		expect(result.id).toBeDefined();
+
+		expect(result.customerTypeId).toBeDefined();
+		expect(result.customerTypeId).toBeNull();
+
+		expect(result.sendMail).toBeUndefined();
+	});
 });

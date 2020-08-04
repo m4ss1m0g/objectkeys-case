@@ -59,3 +59,17 @@ upper
 */
 
 ```
+
+## Release notes
+
+### 1.2.0 - 2020-08-04
+
+- Now working with objects and arrays
+
+### 1.1.0 - 2020-07-19
+
+- Improved for null values
+
+### 1.0.0 - 2020-07-05
+
+- Initial release

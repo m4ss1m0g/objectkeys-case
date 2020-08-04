@@ -28,23 +28,30 @@ function upCaseKeys(obj) {
  * @returns A new object
  */
 function changeObjectKeys(obj, caseType) {
-	var result = {};
-	for (const prop in obj) {
-		let val;
-		// return the null as is
-		if (obj[prop] === null) {
-			val = obj[prop];
-		} else {
-			// Calculate the property value
-			val =
-				typeof obj[prop] === "object"
-					? changeObjectKeys(obj[prop], caseType)
-					: obj[prop];
-		}
+	if (Array.isArray(obj)) {
+		return obj.map((p) => changeObjectKeys(p, caseType));
+	} else {
+		var result = {};
+		for (const prop in obj) {
+			let val = obj[prop];
 
-		result[changePropertyFirstCharCase(prop, caseType)] = val;
+			// return the null as is
+			if (obj[prop] === null) {
+				val = obj[prop];
+			} else if (Array.isArray(val)) {
+				val = val.map((p) => changeObjectKeys(p, caseType));
+			} else {
+				// Calculate the property value
+				val =
+					typeof obj[prop] === "object"
+						? changeObjectKeys(obj[prop], caseType)
+						: obj[prop];
+			}
+
+			result[changePropertyFirstCharCase(prop, caseType)] = val;
+		}
+		return result;
 	}
-	return result;
 }
 
 /**

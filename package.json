@@ -1,6 +1,6 @@
 {
 	"name": "objectkeys-case",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "Change the case (to upper or to lower) of the first char of object properties.",
 	"author": {
 		"name": "Massimo Giambona",
